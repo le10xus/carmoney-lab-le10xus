@@ -22,9 +22,7 @@ curl http://localhost:8080/health
 
 ## Конвенции кода
 - `declare(strict_types=1)` в каждом PHP-файле, классы `final`
-- Namespace `CarMoneyLab\` (PSR-4 от `backend/src/`), тесты — `CarMoneyLab\Tests\Unit\`
-- Бизнес-числа и пороги — в `backend/config/rules.php`, в коде не дублируем
-- PHPUnit-тесты: AAA, имя описывает поведение, тест кончается `assert*` (а не действуем)
+
 
 ## Правила для агента
 - Не читать и не править `.env*`. Не запускать `scripts/reset_db.sh`.
