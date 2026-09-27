@@ -79,4 +79,48 @@ final class ApplicationValidatorTest extends TestCase
             );
         }
     }
+
+    public function testAcceptsApplicationWithoutMileage(): void
+    {
+        $payload = $this->validPayload();
+        unset($payload['mileage']);
+
+        $result = $this->validator->validate($payload);
+
+        self::assertNull($result['mileage']);
+    }
+
+    public function testAcceptsApplicationWithNullMileage(): void
+    {
+        $result = $this->validator->validate($this->validPayload(['mileage' => null]));
+
+        self::assertNull($result['mileage']);
+    }
+
+    public function testAcceptsApplicationWithEmptyStringMileage(): void
+    {
+        $result = $this->validator->validate($this->validPayload(['mileage' => '']));
+
+        self::assertNull($result['mileage']);
+    }
+
+    public function testRejectsNonNumericMileage(): void
+    {
+        try {
+            $this->validator->validate($this->validPayload(['mileage' => 'abc']));
+            self::fail('Ожидали ValidationException');
+        } catch (ValidationException $exception) {
+            self::assertArrayHasKey('mileage', $exception->errors());
+        }
+    }
+
+    public function testRejectsMileageAboveValidationMax(): void
+    {
+        try {
+            $this->validator->validate($this->validPayload(['mileage' => 500001]));
+            self::fail('Ожидали ValidationException');
+        } catch (ValidationException $exception) {
+            self::assertArrayHasKey('mileage', $exception->errors());
+        }
+    }
 }
