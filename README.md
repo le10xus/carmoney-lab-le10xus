@@ -19,6 +19,28 @@ make test
 
 Форма: <http://localhost:8080/> · health: <http://localhost:8080/health>
 
+## Как проверить, что сервис жив
+
+После запуска через `make up` проверьте состояние контейнеров:
+
+```bash
+make ps
+```
+
+Проверьте HTTP health endpoint backend-сервиса:
+
+```bash
+curl http://localhost:${APP_PORT:-8080}/health
+```
+
+Если сервис не отвечает, посмотрите логи backend:
+
+```bash
+make logs
+```
+
+По умолчанию backend доступен на порту `8080`; его можно переопределить переменной `APP_PORT`. MySQL запускается на порту `3307` (переменная `DB_PORT`) и имеет healthcheck; backend зависит от успешного healthcheck базы.
+
 Docker'а на ноутбуке нет? Тогда локально работают тесты и линтер
 (`composer install && make test`), а форму для упражнения 1.6.3 ведущий даст на стенде — скажите ему.
 
