@@ -20,7 +20,10 @@ return [
     'vehicle' => [
         'min_year' => 1990,
         'max_age_years' => 20,
+        // Валидационная граница: пробег выше → 422.
         'max_mileage_km' => 500000,
+        // Граница решения: пробег выше (включая неизвестный) → review.
+        'review_above_mileage_km' => 400000,
     ],
 
     'amount' => [

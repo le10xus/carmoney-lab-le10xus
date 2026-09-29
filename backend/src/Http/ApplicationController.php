@@ -47,6 +47,7 @@ final class ApplicationController
             'ltv' => $result['ltv'],
             'decision' => $result['decision'],
             'approved_limit' => $result['approved_limit'],
+            'decision_reason' => $result['decision_reason'],
         ], 201);
     }
 
@@ -66,6 +67,7 @@ final class ApplicationController
             'ltv' => $result['ltv'],
             'decision' => $result['decision'],
             'approved_limit' => $result['approved_limit'],
+            'decision_reason' => $result['decision_reason'],
         ]);
     }
 

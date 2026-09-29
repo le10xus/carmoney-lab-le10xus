@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS vehicles (
     model           VARCHAR(40) NULL,
     production_year SMALLINT UNSIGNED NOT NULL,
     mileage_km      INT UNSIGNED NOT NULL,
+    mileage_known   TINYINT(1)   NOT NULL DEFAULT 1 COMMENT '0 — пробег неизвестен при приёме, в mileage_km лежит плейсхолдер 0',
     market_value    INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     KEY idx_vehicles_application (application_id),

@@ -35,14 +35,15 @@ final class ApplicationRepository
         $applicationId = (int) $this->pdo->lastInsertId();
 
         $vehicle = $this->pdo->prepare(
-            'INSERT INTO vehicles (application_id, vin, production_year, mileage_km, market_value)
-             VALUES (:application_id, :vin, :year, :mileage, :market_value)'
+            'INSERT INTO vehicles (application_id, vin, production_year, mileage_km, mileage_known, market_value)
+             VALUES (:application_id, :vin, :year, :mileage, :mileage_known, :market_value)'
         );
         $vehicle->execute([
             ':application_id' => $applicationId,
             ':vin' => $input['vin'],
             ':year' => $input['year'],
-            ':mileage' => $input['mileage'],
+            ':mileage' => $input['mileage'] ?? 0,
+            ':mileage_known' => $input['mileage'] === null ? 0 : 1,
             ':market_value' => $input['market_value'],
         ]);
 
@@ -65,7 +66,7 @@ final class ApplicationRepository
     {
         $statement = $this->pdo->prepare(
             'SELECT a.id, a.applicant_ref, a.requested_amount, a.term_months, a.status, a.created_at,
-                    v.vin, v.production_year, v.mileage_km, v.market_value,
+                    v.vin, v.production_year, v.mileage_km, v.mileage_known, v.market_value,
                     d.ltv, d.decision, d.approved_limit
              FROM applications a
              LEFT JOIN vehicles v ON v.application_id = a.id
