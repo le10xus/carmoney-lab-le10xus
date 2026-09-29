@@ -19,7 +19,7 @@ final class ApplicationValidator
 
     /**
      * @param array<string,mixed> $payload
-     * @return array{vin:string,year:int,mileage:int,market_value:int,requested_amount:int,term_months:int}
+     * @return array{vin:string,year:int,mileage:int|null,market_value:int,requested_amount:int,term_months:int}
      */
     public function validate(array $payload): array
     {
@@ -40,9 +40,17 @@ final class ApplicationValidator
             $errors['year'] = sprintf('Возраст авто больше %d лет', $this->rules['vehicle']['max_age_years']);
         }
 
-        $mileage = (int) ($payload['mileage'] ?? -1);
-        if ($mileage < 0 || $mileage > $this->rules['vehicle']['max_mileage_km']) {
-            $errors['mileage'] = sprintf('Пробег от 0 до %d км', $this->rules['vehicle']['max_mileage_km']);
+        $rawMileage = $payload['mileage'] ?? null;
+        if ($rawMileage === null || $rawMileage === '') {
+            $mileage = null;
+        } elseif (is_int($rawMileage) || (is_string($rawMileage) && is_numeric($rawMileage))) {
+            $mileage = (int) $rawMileage;
+            if ($mileage < 0 || $mileage > $this->rules['vehicle']['max_mileage_km']) {
+                $errors['mileage'] = sprintf('Пробег от 0 до %d км', $this->rules['vehicle']['max_mileage_km']);
+            }
+        } else {
+            $mileage = null;
+            $errors['mileage'] = 'Пробег должен быть числом';
         }
 
         $marketValue = (int) ($payload['market_value'] ?? 0);
