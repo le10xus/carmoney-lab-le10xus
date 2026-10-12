@@ -14,3 +14,5 @@ ast-index symbol "mileage" 2>&1; echo "---"; ast-index symbol "max_mileage_km" 2
 ast-index usages "mileage" 2>&1; echo "---USAGES max_mileage_km---"; ast-index usages "max_mileage_km" 2>&1; echo "---SEARCH mileage---"; ast-index search "mileage" 2>&1; echo "---SEARCH max_mileage_km---"; ast-index search "max_mileage_km" 2>&1
 ast-index outline backend/src/Domain/AssessmentService.php 2>&1; echo "---"; ast-index outline backend/src/Domain/ApplicationValidator.php 2>&1; echo "---"; ast-index outline backend/src/Domain/MileageRule.php 2>&1; echo "---"; ast-index outline backend/src/AppFactory.php 2>&1; echo "---"; ast-index outline backend/src/Repository/ApplicationRepository.php 2>&1; echo "---"; ast-index outline tests/Unit/AssessmentServiceTest.php 2>&1; echo "---"; ast-index outline tests/Unit/MileageRuleTest.php 2>&1
 ast-index outline tests/Unit/ApplicationValidatorTest.php 2>&1
+
+агент звал ast-index: да
