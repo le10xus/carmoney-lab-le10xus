@@ -16,3 +16,9 @@ ast-index outline backend/src/Domain/AssessmentService.php 2>&1; echo "---"; ast
 ast-index outline tests/Unit/ApplicationValidatorTest.php 2>&1
 
 агент звал ast-index: да
+
+ast-index + Caveman
+3 steps · $0.00
+In 44,034 · Out 1,016 · Reason 149
+Cache R 17,523 · W 0 · Hit Rate 28.5%
+Более сжатый ответ, файлы те же.
