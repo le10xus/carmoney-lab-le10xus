@@ -1,0 +1,43 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - heading "Предварительная оценка заявки на заём под ПТС" [level=1] [ref=e3]
+    - paragraph [ref=e4]: Учебный сервис. Все данные синтетические, реальные заявки сюда вводить нельзя.
+  - main [ref=e5]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]: Идентификатор клиента
+        - textbox "Идентификатор клиента" [ref=e9]: CL-0025
+      - generic [ref=e10]:
+        - generic [ref=e11]: VIN
+        - textbox "VIN" [ref=e12]: XTA21099998765432
+      - generic [ref=e13]:
+        - generic [ref=e14]: Год выпуска
+        - spinbutton "Год выпуска" [ref=e15]: "2019"
+      - generic [ref=e16]:
+        - generic [ref=e17]: Пробег, км
+        - spinbutton "Пробег, км" [ref=e18]: "400001"
+      - generic [ref=e19]:
+        - generic [ref=e20]: Оценочная стоимость, ₽
+        - spinbutton "Оценочная стоимость, ₽" [ref=e21]: "900000"
+      - generic [ref=e22]:
+        - generic [ref=e23]: Запрошенная сумма, ₽
+        - spinbutton "Запрошенная сумма, ₽" [ref=e24]: "450000"
+      - generic [ref=e25]:
+        - generic [ref=e26]: Срок, месяцев
+        - spinbutton "Срок, месяцев" [ref=e27]: "24"
+      - generic [ref=e28]:
+        - button "Отправить заявку" [active] [ref=e29] [cursor=pointer]
+        - button "Только рассчитать LTV" [ref=e30] [cursor=pointer]
+    - generic [ref=e31]:
+      - heading "Решение" [level=2] [ref=e32]
+      - generic [ref=e33]:
+        - term [ref=e34]: Решение
+        - definition [ref=e35]: review
+        - term [ref=e36]: LTV
+        - definition [ref=e37]: 50 %
+        - term [ref=e38]: Возраст авто
+        - definition [ref=e39]: 7 лет
+        - term [ref=e40]: Одобренный лимит
+        - definition [ref=e41]: 0 ₽
+        - term [ref=e42]: Номер заявки
+        - definition [ref=e43]: "26"
