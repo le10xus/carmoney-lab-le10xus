@@ -32,3 +32,4 @@ curl http://localhost:8080/health
 - Артефакты задач класть в `docs/intent|spec|plan/` с именем `<тип>_<ID задачи>.md`.
 - Не менять пороги и формулы в backend/config/rules.php ради тестов. Остановиться и спросить человека.
 - Поиск по коду — через ast-index (search, class, symbol, usages, callers), а не чтением файлов целиком
+- Правила лежат в code-rules.md
